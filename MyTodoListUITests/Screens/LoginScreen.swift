@@ -41,13 +41,13 @@ struct LoginSreen: BaseScreen {
     
     //Password
     func typePassword(_ password:String) -> Self{
-        tapTextField(Identifiers.passwordField)
-        typeText(Identifiers.passwordField, password)
+        tapSecureTextField(Identifiers.passwordField)
+        typeSecureText(Identifiers.passwordField, password)
         return self
     }
     
     func tapPassword() -> Self{
-        tapTextField(Identifiers.passwordField)
+        tapSecureTextField(Identifiers.passwordField)
         return self
     }
     

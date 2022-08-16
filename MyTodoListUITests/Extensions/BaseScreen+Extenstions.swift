@@ -94,6 +94,35 @@ extension BaseScreen{
         XCTAssertTrue(textFieldValue == value, "Text field value is not \(value)")
     }
     
+    // MARK: Secure Text field
+    
+    func tapSecureTextField(_ identifier: String){
+        app.secureTextFields[identifier].tap()
+    }
+    
+    func typeSecureText(_ identfier: String, _ text: String){
+        app.secureTextFields[identfier].tap()
+        app.secureTextFields[identfier].typeText(text)
+    }
+    
+    func clearSecureTextField(_ identifier: String){
+        app.secureTextFields[identifier].clearText()
+    }
+    
+    func textSecureTextFieldExists(_ identifier: String){
+        XCTAssertTrue(app.secureTextFields[identifier].exists, "Text Field \(identifier) does not exist")
+    }
+    
+    func textSecureTextFieldPalaceholderEqualsTo (_ identifier: String, _ value: String){
+        XCTAssertTrue(app.secureTextFields[identifier].placeholderValue == value)
+    }
+    
+    func textSecureTextFieldValueEqualsTo (_ identifier: String, _ value: String){
+        let textFieldValue = app.secureTextFields[identifier].value as! String
+        
+        XCTAssertTrue(textFieldValue == value, "Text field value is not \(value)")
+    }
+    
     // MARK: Navigation bar
     
     func tapNavigationBarButton(_ navigationBarIdentifier: String, _ buttonIdentifier: String){
