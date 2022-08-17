@@ -20,6 +20,8 @@ struct ListRowView: View {
         }
         .font(.title2)
         .padding(.vertical, 8)
+        .accessibilityIdentifier("listItem\(item.title)")
+        .accessibilityElement(children: .combine)
     }
 }
 

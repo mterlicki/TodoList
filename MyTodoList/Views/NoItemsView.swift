@@ -32,6 +32,7 @@ struct NoItemsView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.accentColor)
                         .cornerRadius(10)
+                        .accessibilityIdentifier("addSomethingButton")
                 })
                 .padding(.horizontal, 15)
             }

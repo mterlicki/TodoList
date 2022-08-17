@@ -37,14 +37,17 @@ struct CreateAccountView: View {
                     .padding(.horizontal)
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black))
+                    .accessibilityIdentifier("userNameTextfield")
                 SecureField("Password", text: $createAccountViewModel.password)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black))
+                    .accessibilityIdentifier("newAccountPasswordTextField")
                 SecureField("Repeat password", text: $createAccountViewModel.repeatPassword)
                     .padding(.horizontal)
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black))
+                    .accessibilityIdentifier("repeatPasswordTextField")
             }
             .padding(15)
             
@@ -57,17 +60,22 @@ struct CreateAccountView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.accentColor)
                         .cornerRadius(10)
+                        .accessibilityIdentifier("createNewAccountButton")
                 }
                 Button(action: cancelButtonPressed) {
                     Text("Cancel")
                         .bold()
+                        .accessibilityIdentifier("cancelButton")
                 }
+                
             }
             .padding(15)
             .alert("Error", isPresented: $isAlertPresented, actions: {
                 Button("OK", action: {})
+                    .accessibilityIdentifier("alertOkButton")
             }, message: {
                 Text(alertMessage)
+                    .accessibilityIdentifier("logInAlert")
             })
         }
     }

@@ -14,6 +14,51 @@ struct ToDoListScreen: BaseScreen {
     // MARK: Identifiers
     
     private enum Identifiers {
+        //empty list
+        static let addSomethingButton = "addSomethingButton"
         
+        static let addNewToDoButton = "addNewTodoButton"
+        static let logoutButton = "logoutButton"
+        
+        static let toDoList = "toDoList"
+        
+        //each element name: prefix+item.title
+        static let listItemPrefix = "listItem"
+        
+        static let deleteButton = "Delete"
+    }
+    
+    // MARK: Handlers
+    
+    func tapAddButton () -> AddToDoScreen {
+        tapButton(Identifiers.addNewToDoButton)
+        return AddToDoScreen(app: app)
+    }
+    
+    func tapAddSomethingButton () -> AddToDoScreen {
+        tapButton(Identifiers.addSomethingButton)
+        return AddToDoScreen(app: app)
+    }
+    
+    func tapToDoListElementWith (_ title: String) -> Self {
+        tapTableViewCell(Identifiers.toDoList, "\(Identifiers.listItemPrefix)title")
+        return self
+    }
+    
+    func tapToDoListElemetnWith (_ position: Int) -> Self {
+        tapTableViewCell(Identifiers.toDoList, position)
+        return self
+    }
+    
+    func swipeAndDeleteListElementWith (_ title: String) -> Self {
+        swipeLeftCell(Identifiers.toDoList, title)
+        tapButton(Identifiers.deleteButton)
+        return self
+    }
+    
+    // MARK: Assertions
+    
+    func labelWithTextExists (_ text: String) {
+       labelExists(text)
     }
 }
