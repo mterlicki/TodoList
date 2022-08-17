@@ -15,6 +15,7 @@ class BaseTest: XCTestCase {
     override func setUp() {
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments = ["clearLocalData"]
         app.launch()
     }
 
