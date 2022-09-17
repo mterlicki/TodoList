@@ -54,21 +54,19 @@ extension BaseScreen{
     // MARK: Table view
     
     func tapTableViewCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables.cells.element(boundBy: cellNumber).tap()
+        app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).tap()
     }
     
     func swipeLeftCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables.cells[cellIdentifier].swipeLeft()
+        app.tables[tableViewIdentifier].cells[cellIdentifier].swipeLeft()
     }
     
-    //MARK: Image
-    
-    func imageWithIndentifierIsSelected (_ identifier: String) {
-        XCTAssertTrue(app.images[identifier].label == "Selected", "Image \(identifier) is not selected.")
+    func tableViewCellHasImageWithLabel (_ tableIdentifier: String, _ imageIdentifier: String, _ labelValue: String) {
+        XCTAssertTrue(app.tables[tableIdentifier].images[imageIdentifier].label == labelValue, "Image \(imageIdentifier) has no label: \(labelValue)")
     }
     
-    func imageWithIndentifierIsNotSelected (_ identifier: String) {
-        XCTAssertTrue(app.images[identifier].label == "circle", "Image \(identifier) is not selected.")
+    func tableViewCellNotExists (_ tableIdentifier: String, _ label: String) {
+        XCTAssertFalse(app.tables[tableIdentifier].cells.staticTexts[label].exists,  "Cell with label: \(label) exists.")
     }
 }
 

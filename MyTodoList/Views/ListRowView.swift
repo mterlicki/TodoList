@@ -21,7 +21,6 @@ struct ListRowView: View {
         .font(.title2)
         .padding(.vertical, 8)
         .accessibilityIdentifier(item.title)
-        .accessibilityElement(children: .contain)
     }
 }
 

@@ -20,7 +20,7 @@ struct ToDoListScreen: BaseScreen {
         static let addNewToDoButton = "addNewTodoButton"
         static let logoutButton = "logoutButton"
         
-        static let toDoList = "toDoList"
+        static let toDoList = "todoList"
         
         static let deleteButton = "Delete"
     }
@@ -63,4 +63,15 @@ struct ToDoListScreen: BaseScreen {
         labelExists(text)
     }
     
+    func todoIsMarkedAsDone (_ identifier: String) {
+        tableViewCellHasImageWithLabel(Identifiers.toDoList, identifier, "Selected")
+    }
+    
+    func todoIsMarkedAsNotDone (_ identifier: String) {
+        tableViewCellHasImageWithLabel(Identifiers.toDoList, identifier, "circle")
+    }
+    
+    func todoWithLabelNotExists (_ label: String) {
+        tableViewCellNotExists(Identifiers.toDoList, label)
+    }
 }

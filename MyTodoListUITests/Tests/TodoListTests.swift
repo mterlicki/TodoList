@@ -23,7 +23,7 @@ class TodoListTests: BaseTest {
     func testMarkTodoAsDone () throws {
         ToDoListScreen(app: app)
             .tapToDoListElementWith("one")
-            .imageWithIndentifierIsSelected("one")
+            .todoIsMarkedAsDone("one")
     }
     
     func testTodoIsNotDone () {
@@ -31,12 +31,12 @@ class TodoListTests: BaseTest {
             .tapAddButton()
             .typeToDoTilte("three")
             .tapSaveButton()
-            .imageWithIndentifierIsNotSelected("three")
+            .todoIsMarkedAsNotDone("three")
     }
     
     func testDeleteTodo () {
         ToDoListScreen(app: app)
             .swipeAndDeleteListElementWith("circle, one")
-            .labelNotExists("circle, one")
+            .todoWithLabelNotExists("circle, one")
     }
 }
