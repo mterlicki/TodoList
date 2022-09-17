@@ -68,6 +68,13 @@ struct LoginSreen: BaseScreen {
         return CreateAccountScreen(app: app)
     }
     
+    func loginUser (_ username: String, _ password: String) -> ToDoListScreen {
+        typeText(Identifiers.usernameField, username)
+        typeSecureText(Identifiers.passwordField, password)
+        tapButton(Identifiers.logInButton)
+        return ToDoListScreen(app: app)
+    }
+    
     // Alert
     
     func tapAlertOKButton() -> Self{

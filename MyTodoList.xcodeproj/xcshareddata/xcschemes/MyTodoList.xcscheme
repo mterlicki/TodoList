@@ -47,6 +47,14 @@
                BlueprintName = "MyTodoListUITests"
                ReferencedContainer = "container:MyTodoList.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BaseTest">
+               </Test>
+               <Test
+                  Identifier = "MyTodoListUITests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

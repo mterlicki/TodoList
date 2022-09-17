@@ -38,6 +38,9 @@ protocol DBManagerProtocol {
     func getUser(for username: String, password: String) -> Result<UserModel, DBError>
     
     func clearLocalDataForUITests()
+    func addUserForUITests()
+    func addTodoForUITests()
+    func loginUserForUITests()
     
     var loggedUser: UserModel? { get set }
 }
@@ -150,9 +153,45 @@ class DBManager: DBManagerProtocol {
         }
     }
     
+    // MARK: UI Tests
+    
     func clearLocalDataForUITests() {
         if ProcessInfo().arguments.contains("clearLocalData") {
             UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        }
+    }
+    
+    func addUserForUITests() {
+        if let username = ProcessInfo.processInfo.environment["username"]  {
+            if let password = ProcessInfo.processInfo.environment["password"]{
+                _ = DBManager.shared.saveUser(for: username, password: password)
+            }
+        }
+    }
+    
+    func addTodoForUITests() {
+        if let username = ProcessInfo.processInfo.environment["username"]{
+            if let titles = ProcessInfo.processInfo.environment["titles"] {
+                let values = titles.split(separator: ",")
+                for value in values {
+                    let item = ItemModel(title: String(value), isCompleted: false, username: username)
+                    items.append(item)
+                }
+            }
+        }
+        
+    }
+
+    
+    func loginUserForUITests() {
+        if ProcessInfo.processInfo.environment["isLogedin"] != nil {
+            if let username = ProcessInfo.processInfo.environment["username"] {
+                if let password = ProcessInfo.processInfo.environment["password"] {
+                    let user = UserModel(username: username, password: password)
+                    loggedUser = user
+                }
+                
+            }
         }
     }
 }

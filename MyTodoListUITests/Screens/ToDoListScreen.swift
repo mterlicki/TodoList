@@ -22,9 +22,6 @@ struct ToDoListScreen: BaseScreen {
         
         static let toDoList = "toDoList"
         
-        //each element name: prefix+item.title
-        static let listItemPrefix = "listItem"
-        
         static let deleteButton = "Delete"
     }
     
@@ -41,7 +38,7 @@ struct ToDoListScreen: BaseScreen {
     }
     
     func tapToDoListElementWith (_ title: String) -> Self {
-        tapTableViewCell(Identifiers.toDoList, "\(Identifiers.listItemPrefix)title")
+        tapLabel(title)
         return self
     }
     
@@ -61,4 +58,9 @@ struct ToDoListScreen: BaseScreen {
     func labelWithTextExists (_ text: String) {
        labelExists(text)
     }
+    
+    func labelWithTextNotExists (_ text: String) {
+        labelExists(text)
+    }
+    
 }

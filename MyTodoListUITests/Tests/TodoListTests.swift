@@ -9,15 +9,34 @@ import XCTest
 
 class TodoListTests: BaseTest {
     
-    func testMarkTodoAsDone () throws {
-        
+    override func setUp() {
+        continueAfterFailure = false
+        app = XCUIApplication()
+        app.launchArguments = ["clearLocalData"]
+        app.launchEnvironment = ["username": "username",
+                                 "password": "pass",
+                                 "isLogedin": "true",
+                                 "titles": "one,two"]
+        app.launch()
     }
     
-    func testTodoIsDone () {
-        
+    func testMarkTodoAsDone () throws {
+        ToDoListScreen(app: app)
+            .tapToDoListElementWith("one")
+            .imageWithIndentifierIsSelected("one")
+    }
+    
+    func testTodoIsNotDone () {
+        ToDoListScreen(app: app)
+            .tapAddButton()
+            .typeToDoTilte("three")
+            .tapSaveButton()
+            .imageWithIndentifierIsNotSelected("three")
     }
     
     func testDeleteTodo () {
-        
+        ToDoListScreen(app: app)
+            .swipeAndDeleteListElementWith("circle, one")
+            .labelNotExists("circle, one")
     }
 }

@@ -41,6 +41,6 @@ class CreateAccountTests: BaseTest {
             .typePassword("password")
             .typeRepeatPassword("password")
             .tapCreateButton()
-            
+            .labelWithTextExists("Nothing todo!")
     }
 }

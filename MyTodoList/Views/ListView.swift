@@ -33,7 +33,6 @@ struct ListView: View {
                             }
                     }
                     .onDelete(perform: listViewModel.deleteItem)
-                    .accessibilityIdentifier("toDoList")
                 }
             }
         }

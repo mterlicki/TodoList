@@ -1,6 +1,6 @@
 //
 //  BaseScreen+Extenstions.swift
-//  CoreDataDemoUITests
+//  MyTodoListUITests
 //
 //  Created by Michał Terlicki on 28/05/2022.
 //  Copyright © 2022 Michal Terlicki. All rights reserved.
@@ -18,6 +18,14 @@ extension BaseScreen{
     
     func labelExists(_ identifier:String){
         XCTAssertTrue(app.staticTexts[identifier].exists, "Label \(identifier) does not exist")
+    }
+    
+    func labelNotExists(_ identifier:String){
+        XCTAssertFalse(app.staticTexts[identifier].exists, "Label \(identifier) exists")
+    }
+    
+    func tapLabel (_ identifier: String) {
+        app.staticTexts[identifier].tap()
     }
     
     // MARK: Buttons
@@ -138,39 +146,39 @@ extension BaseScreen{
     // MARK: Table view
     
     func tapTableViewCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables[tableViewIdentifier].cells[cellIdentifier].tap()
+        app.tables.cells[cellIdentifier].tap()
     }
     
     func tapTableViewCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).tap()
+        app.tables.cells.element(boundBy: cellNumber).tap()
     }
     
     func numberOfCells(_ identifier: String) -> Int {
-        return app.tables[identifier].cells.count
+        return app.tables.firstMatch.cells.count
     }
     
     func swipeLeftCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).swipeLeft()
+        app.tables.cells.element(boundBy: cellNumber).swipeLeft()
     }
     
     func swipeLeftCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables[tableViewIdentifier].cells[cellIdentifier].swipeLeft()
+        app.tables.cells[cellIdentifier].swipeLeft()
     }
     
     func swipeRightCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).swipeRight()
+        app.tables.cells.element(boundBy: cellNumber).swipeRight()
     }
     
     func swipeRightCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables[tableViewIdentifier].cells[cellIdentifier].swipeRight()
+        app.tables.cells[cellIdentifier].swipeRight()
     }
     
     func tapTableViewCellButton(_ tableViewIdentifier: String, _ cellIdentifier: String, _ buttonIdentifier: String){
-        app.tables[tableViewIdentifier].cells[cellIdentifier].buttons[buttonIdentifier].tap()
+        app.tables.cells[cellIdentifier].buttons[buttonIdentifier].tap()
     }
     
     func tapTableViewCellButton(_ tableViewIdentifier: String, _ cellNumber: Int, _ buttonIdentifier: String){
-        app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).buttons[buttonIdentifier].tap()
+        app.tables.cells.element(boundBy: cellNumber).buttons[buttonIdentifier].tap()
     }
     
     func tableViewCellLabelHasValue(_ tableViewIdentifier: String, _ cellIdentifier: String, _ labelIdentifier: String, _ value: String) {
@@ -179,18 +187,26 @@ extension BaseScreen{
     }
     
     func tableViewCellLabelHasValue(_ tableViewIdentifier: String, _ cellNumber: Int, _ labelIdentifier: String, _ value: String) {
-        let labelValue = app.tables[tableViewIdentifier].cells.element(boundBy: cellNumber).staticTexts[labelIdentifier].label
+        let labelValue = app.tables.cells.element(boundBy: cellNumber).staticTexts[labelIdentifier].label
         XCTAssertTrue(labelValue == value, "Cell label value is \(labelValue) not \(value) as expected")
     }
     
     func tableViewCellExist(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        XCTAssertTrue(app.tables[tableViewIdentifier].cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) does not exist")
+        XCTAssertTrue(app.tables.cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) does not exist")
     }
     
     func tableViewCellDoesNotExist (_ tableViewIdentifier: String, _ cellIdentifier: String){
-        XCTAssertFalse(app.tables[tableViewIdentifier].cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) exists")
+        XCTAssertFalse(app.tables.cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) exists")
     }
     
+    //MARK: Image
     
+    func imageWithIndentifierIsSelected (_ identifier: String) {
+        XCTAssertTrue(app.images[identifier].label == "Selected", "Image \(identifier) is not selected.")
+    }
+    
+    func imageWithIndentifierIsNotSelected (_ identifier: String) {
+        XCTAssertTrue(app.images[identifier].label == "circle", "Image \(identifier) is not selected.")
+    }
 }
 

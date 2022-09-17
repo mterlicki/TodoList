@@ -20,8 +20,8 @@ struct ListRowView: View {
         }
         .font(.title2)
         .padding(.vertical, 8)
-        .accessibilityIdentifier("listItem\(item.title)")
-        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier(item.title)
+        .accessibilityElement(children: .contain)
     }
 }
 
@@ -32,6 +32,7 @@ struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ListRowView(item: item1)
+                .previewInterfaceOrientation(.landscapeLeft)
             ListRowView(item: item2)
         }
         .previewLayout(.sizeThatFits)
