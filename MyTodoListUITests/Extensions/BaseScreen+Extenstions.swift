@@ -11,11 +11,6 @@ import XCTest
 extension BaseScreen{
     // MARK: Labels
     
-    func labelHasValue(_ identifier: String, _ value: String) {
-        let labelValue = app.staticTexts[identifier].label
-        XCTAssertTrue(labelValue == value, "Value is \(labelValue) not \(value) as expected")
-    }
-    
     func labelExists(_ identifier:String){
         XCTAssertTrue(app.staticTexts[identifier].exists, "Label \(identifier) does not exist")
     }
@@ -33,46 +28,7 @@ extension BaseScreen{
     func tapButton(_ identifier: String){
         app.buttons[identifier].tap()
     }
-    
-    func buttonExists(_ identifier: String){
-        XCTAssertTrue(app.buttons[identifier].exists, "\(identifier) button does not exist")
-    }
-    
-    func buttonIsEnabled(_ identifier: String) {
-        XCTAssertTrue(app.buttons[identifier].isEnabled, "\(identifier) button is disabled")
-    }
-    
-    func ButtonIsDisabled(_ identifier: String) {
-        XCTAssertFalse(app.buttons[identifier].isEnabled, "\(identifier) button is enabled")
-    }
-    
-    // MARK: Alerts
-    
-    func clearAlertTextField(_ alertIdentifier: String, _ textFieldIdentifier: String) {
-        app.alerts[alertIdentifier].textFields[textFieldIdentifier].tap()
-        app.alerts[alertIdentifier].textFields[textFieldIdentifier].clearText()
-    }
-    
-    func alertButtonTap(_ alertIdentifier: String, _ buttonIdentifier: String) {
-        app.alerts[alertIdentifier].buttons[buttonIdentifier].tap()
-    }
-    
-    func alertTextFieldTypeText(_ alertIdentifier: String, _ textFieldIdentifier: String, _ text: String) {
-        app.alerts[alertIdentifier].textFields[textFieldIdentifier].tap()
-        app.alerts[alertIdentifier].textFields[textFieldIdentifier].typeText(text)
-    }
-    
-    func alertHasText (_ identifier: String, _ text: String) {
         
-        XCTAssertTrue(app.alerts[identifier].staticTexts[text].exists, "Alert text \(text) does not exists")
-    }
-    
-    func alertTextFieldHasValue(_ identifier: String, _ value: String) {
-        let textFieldValue = app.alerts[identifier].textFields.firstMatch.value
-        
-        XCTAssertTrue(textFieldValue as! String == value, "Text field value is \(textFieldValue ?? " ") not \(value) as expceted")
-    }
-    
     // MARK: Text field
     
     func tapTextField(_ identifier: String){
@@ -83,25 +39,7 @@ extension BaseScreen{
         app.textFields[identfier].tap()
         app.textFields[identfier].typeText(text)
     }
-    
-    func clearTextField(_ identifier: String){
-        app.textFields[identifier].clearText()
-    }
-    
-    func textFieldExists(_ identifier: String){
-        XCTAssertTrue(app.textFields[identifier].exists, "Text Field \(identifier) does not exist")
-    }
-    
-    func textFieldPalaceholderEqualsTo (_ identifier: String, _ value: String){
-        XCTAssertTrue(app.textFields[identifier].placeholderValue == value)
-    }
-    
-    func textFieldValueEqualsTo (_ identifier: String, _ value: String){
-        let textFieldValue = app.textFields[identifier].value as! String
-        
-        XCTAssertTrue(textFieldValue == value, "Text field value is not \(value)")
-    }
-    
+
     // MARK: Secure Text field
     
     func tapSecureTextField(_ identifier: String){
@@ -113,90 +51,14 @@ extension BaseScreen{
         app.secureTextFields[identfier].typeText(text)
     }
     
-    func clearSecureTextField(_ identifier: String){
-        app.secureTextFields[identifier].clearText()
-    }
-    
-    func textSecureTextFieldExists(_ identifier: String){
-        XCTAssertTrue(app.secureTextFields[identifier].exists, "Text Field \(identifier) does not exist")
-    }
-    
-    func textSecureTextFieldPalaceholderEqualsTo (_ identifier: String, _ value: String){
-        XCTAssertTrue(app.secureTextFields[identifier].placeholderValue == value)
-    }
-    
-    func textSecureTextFieldValueEqualsTo (_ identifier: String, _ value: String){
-        let textFieldValue = app.secureTextFields[identifier].value as! String
-        
-        XCTAssertTrue(textFieldValue == value, "Text field value is not \(value)")
-    }
-    
-    // MARK: Navigation bar
-    
-    func tapNavigationBarButton(_ navigationBarIdentifier: String, _ buttonIdentifier: String){
-        app.navigationBars[navigationBarIdentifier].buttons[buttonIdentifier].tap()
-    }
-    
-    func navigationBarHasTitle (_ navigationBarIdentifier: String, _ title: String){
-        let navigationBarTitle = app.navigationBars[navigationBarIdentifier].staticTexts[navigationBarIdentifier].label
-        
-        XCTAssertTrue(navigationBarTitle == title)
-    }
-    
     // MARK: Table view
-    
-    func tapTableViewCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables.cells[cellIdentifier].tap()
-    }
     
     func tapTableViewCell(_ tableViewIdentifier: String, _ cellNumber: Int){
         app.tables.cells.element(boundBy: cellNumber).tap()
     }
     
-    func numberOfCells(_ identifier: String) -> Int {
-        return app.tables.firstMatch.cells.count
-    }
-    
-    func swipeLeftCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables.cells.element(boundBy: cellNumber).swipeLeft()
-    }
-    
     func swipeLeftCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
         app.tables.cells[cellIdentifier].swipeLeft()
-    }
-    
-    func swipeRightCell(_ tableViewIdentifier: String, _ cellNumber: Int){
-        app.tables.cells.element(boundBy: cellNumber).swipeRight()
-    }
-    
-    func swipeRightCell(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        app.tables.cells[cellIdentifier].swipeRight()
-    }
-    
-    func tapTableViewCellButton(_ tableViewIdentifier: String, _ cellIdentifier: String, _ buttonIdentifier: String){
-        app.tables.cells[cellIdentifier].buttons[buttonIdentifier].tap()
-    }
-    
-    func tapTableViewCellButton(_ tableViewIdentifier: String, _ cellNumber: Int, _ buttonIdentifier: String){
-        app.tables.cells.element(boundBy: cellNumber).buttons[buttonIdentifier].tap()
-    }
-    
-    func tableViewCellLabelHasValue(_ tableViewIdentifier: String, _ cellIdentifier: String, _ labelIdentifier: String, _ value: String) {
-        let labelValue = app.tables[tableViewIdentifier].cells[cellIdentifier].staticTexts[labelIdentifier].label
-        XCTAssertTrue(labelValue == value, "Cell label value is \(labelValue) not \(value) as expected")
-    }
-    
-    func tableViewCellLabelHasValue(_ tableViewIdentifier: String, _ cellNumber: Int, _ labelIdentifier: String, _ value: String) {
-        let labelValue = app.tables.cells.element(boundBy: cellNumber).staticTexts[labelIdentifier].label
-        XCTAssertTrue(labelValue == value, "Cell label value is \(labelValue) not \(value) as expected")
-    }
-    
-    func tableViewCellExist(_ tableViewIdentifier: String, _ cellIdentifier: String){
-        XCTAssertTrue(app.tables.cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) does not exist")
-    }
-    
-    func tableViewCellDoesNotExist (_ tableViewIdentifier: String, _ cellIdentifier: String){
-        XCTAssertFalse(app.tables.cells[cellIdentifier].isHittable, "Table View Cell \(cellIdentifier) exists")
     }
     
     //MARK: Image
