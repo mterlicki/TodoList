@@ -54,6 +54,9 @@
                <Test
                   Identifier = "MyTodoListUITests">
                </Test>
+               <Test
+                  Identifier = "MyTodoListUITestsLaunchTests">
+               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>

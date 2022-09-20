@@ -12,7 +12,7 @@ extension BaseScreen{
     // MARK: Labels
     
     func labelExists(_ identifier:String){
-        XCTAssertTrue(app.staticTexts[identifier].exists, "Label \(identifier) does not exist")
+        XCTAssertTrue(app.staticTexts[identifier].exists, "Label \"\(identifier)\" does not exist")
     }
     
     func labelNotExists(_ identifier:String){
@@ -20,13 +20,18 @@ extension BaseScreen{
     }
     
     func tapLabel (_ identifier: String) {
-        app.staticTexts[identifier].tap()
+        if app.staticTexts[identifier].waitForExistence(timeout: 1){
+            app.staticTexts[identifier].tap()
+        }
+        
     }
     
     // MARK: Buttons
     
     func tapButton(_ identifier: String){
-        app.buttons[identifier].tap()
+        if app.buttons[identifier].waitForExistence(timeout: 1) {
+            app.buttons[identifier].tap()
+        }
     }
         
     // MARK: Text field
