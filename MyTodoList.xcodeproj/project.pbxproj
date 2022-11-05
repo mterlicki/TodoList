@@ -26,6 +26,18 @@
 		6DC8AA552822F4F9002D6FE5 /* NoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC8AA542822F4F9002D6FE5 /* NoItemsView.swift */; };
 		6DC8AA572823DC8D002D6FE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC8AA562823DC8D002D6FE5 /* LaunchScreen.storyboard */; };
 		6DDBCA46282446D2003480E0 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDBCA45282446D2003480E0 /* LoginView.swift */; };
+		F780F58E285E42AA0076AC59 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F58D285E42AA0076AC59 /* LoginScreen.swift */; };
+		F780F590285E42E00076AC59 /* CreateAccountScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F58F285E42E00076AC59 /* CreateAccountScreen.swift */; };
+		F780F592285E43360076AC59 /* ToDoListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F591285E43360076AC59 /* ToDoListScreen.swift */; };
+		F780F594285E43560076AC59 /* AddToDoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F593285E43560076AC59 /* AddToDoScreen.swift */; };
+		F780F598285E67120076AC59 /* XCUIElement+ClearText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F597285E67120076AC59 /* XCUIElement+ClearText.swift */; };
+		F780F59A285E672F0076AC59 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F599285E672F0076AC59 /* BaseTest.swift */; };
+		F780F59C285E67660076AC59 /* BaseScreen+Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F59B285E67660076AC59 /* BaseScreen+Extenstions.swift */; };
+		F780F59E285E67E10076AC59 /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F59D285E67E10076AC59 /* BaseScreen.swift */; };
+		F780F5A0285E6E1B0076AC59 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F780F59F285E6E1B0076AC59 /* LoginTests.swift */; };
+		F7AD539A28ABEE030037D67C /* CreateAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD539928ABEE030037D67C /* CreateAccountTests.swift */; };
+		F7AD539C28AC15AA0037D67C /* AddNewToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD539B28AC15AA0037D67C /* AddNewToDoTests.swift */; };
+		F7AD539E28AC15C30037D67C /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD539D28AC15C30037D67C /* TodoListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +80,18 @@
 		6DC8AA542822F4F9002D6FE5 /* NoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoItemsView.swift; sourceTree = "<group>"; };
 		6DC8AA562823DC8D002D6FE5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6DDBCA45282446D2003480E0 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F780F58D285E42AA0076AC59 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		F780F58F285E42E00076AC59 /* CreateAccountScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreen.swift; sourceTree = "<group>"; };
+		F780F591285E43360076AC59 /* ToDoListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListScreen.swift; sourceTree = "<group>"; };
+		F780F593285E43560076AC59 /* AddToDoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoScreen.swift; sourceTree = "<group>"; };
+		F780F597285E67120076AC59 /* XCUIElement+ClearText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+ClearText.swift"; sourceTree = "<group>"; };
+		F780F599285E672F0076AC59 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
+		F780F59B285E67660076AC59 /* BaseScreen+Extenstions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BaseScreen+Extenstions.swift"; sourceTree = "<group>"; };
+		F780F59D285E67E10076AC59 /* BaseScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
+		F780F59F285E6E1B0076AC59 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		F7AD539928ABEE030037D67C /* CreateAccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateAccountTests.swift; path = MyTodoListUITests/Tests/CreateAccountTests.swift; sourceTree = SOURCE_ROOT; };
+		F7AD539B28AC15AA0037D67C /* AddNewToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewToDoTests.swift; sourceTree = "<group>"; };
+		F7AD539D28AC15C30037D67C /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +180,9 @@
 		6DC072AD2822AF5B002D2F2B /* MyTodoListUITests */ = {
 			isa = PBXGroup;
 			children = (
+				F780F583285E41C40076AC59 /* Extensions */,
+				F780F582285E41A10076AC59 /* Screens */,
+				F780F581285E41970076AC59 /* Tests */,
 				6DC072AE2822AF5B002D2F2B /* MyTodoListUITests.swift */,
 				6DC072B02822AF5B002D2F2B /* MyTodoListUITestsLaunchTests.swift */,
 			);
@@ -193,6 +220,39 @@
 				68CAAA76282AC61300B0977D /* CreateAccountViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F780F581285E41970076AC59 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F780F599285E672F0076AC59 /* BaseTest.swift */,
+				F7AD539928ABEE030037D67C /* CreateAccountTests.swift */,
+				F780F59F285E6E1B0076AC59 /* LoginTests.swift */,
+				F7AD539B28AC15AA0037D67C /* AddNewToDoTests.swift */,
+				F7AD539D28AC15C30037D67C /* TodoListTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		F780F582285E41A10076AC59 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F780F59D285E67E10076AC59 /* BaseScreen.swift */,
+				F780F58D285E42AA0076AC59 /* LoginScreen.swift */,
+				F780F58F285E42E00076AC59 /* CreateAccountScreen.swift */,
+				F780F591285E43360076AC59 /* ToDoListScreen.swift */,
+				F780F593285E43560076AC59 /* AddToDoScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F780F583285E41C40076AC59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F780F597285E67120076AC59 /* XCUIElement+ClearText.swift */,
+				F780F59B285E67660076AC59 /* BaseScreen+Extenstions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +415,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DC072B12822AF5B002D2F2B /* MyTodoListUITestsLaunchTests.swift in Sources */,
+				F780F58E285E42AA0076AC59 /* LoginScreen.swift in Sources */,
+				F780F590285E42E00076AC59 /* CreateAccountScreen.swift in Sources */,
+				F7AD539A28ABEE030037D67C /* CreateAccountTests.swift in Sources */,
+				F7AD539C28AC15AA0037D67C /* AddNewToDoTests.swift in Sources */,
+				F780F592285E43360076AC59 /* ToDoListScreen.swift in Sources */,
+				F780F59E285E67E10076AC59 /* BaseScreen.swift in Sources */,
+				F780F5A0285E6E1B0076AC59 /* LoginTests.swift in Sources */,
+				F780F59A285E672F0076AC59 /* BaseTest.swift in Sources */,
+				F780F598285E67120076AC59 /* XCUIElement+ClearText.swift in Sources */,
+				F780F59C285E67660076AC59 /* BaseScreen+Extenstions.swift in Sources */,
+				F7AD539E28AC15C30037D67C /* TodoListTests.swift in Sources */,
 				6DC072AF2822AF5B002D2F2B /* MyTodoListUITests.swift in Sources */,
+				F780F594285E43560076AC59 /* AddToDoScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,7 @@ struct ListView: View {
                     }
                     .onDelete(perform: listViewModel.deleteItem)
                 }
+                .accessibilityIdentifier("todoList")
             }
         }
         .listStyle(PlainListStyle())
@@ -46,11 +47,13 @@ struct ListView: View {
                         listViewModel.addItem(title: text)
                     })
                 )
+                .accessibilityIdentifier("addNewTodoButton")
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Logout") {
                     currentUser.user = nil
                 }
+                .accessibilityIdentifier("logoutButton")
             }
         }
         .alert(listViewModel.errorMessage, isPresented: $listViewModel.showError, actions: {})

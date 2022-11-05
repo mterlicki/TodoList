@@ -31,6 +31,7 @@ struct AddView: View {
                     .padding(.horizontal)
                     .frame(height: 55)
                     .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black))
+                    .accessibilityIdentifier("toDoTextField")
                 Button(action: saveButtonPressed) {
                     Text("Save".uppercased())
                         .bold()
@@ -39,6 +40,7 @@ struct AddView: View {
                         .frame(maxWidth: .infinity)
                         .background(Color.accentColor)
                         .cornerRadius(10)
+                        .accessibilityIdentifier("saveTodoButton")
                 }
             }
             .padding(15)
@@ -46,6 +48,7 @@ struct AddView: View {
         .navigationTitle("Add Todo")
         .alert("Error", isPresented: $isAlertPresented, actions: {
             Button("OK", action: {})
+                .accessibilityIdentifier("addToDoAlertOKButton")
         }, message: {
             Text(alertMessage)
         })

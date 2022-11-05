@@ -14,6 +14,9 @@ struct MyTodoListApp: App {
     
     init() {
         DBManager.shared.clearLocalDataForUITests()
+        DBManager.shared.addUserForUITests()
+        DBManager.shared.addTodoForUITests()
+        DBManager.shared.loginUserForUITests()
     }
     
     var body: some Scene {
